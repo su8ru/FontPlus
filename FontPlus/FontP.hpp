@@ -71,9 +71,9 @@ namespace s3d {
 		/// 描画領域
 		/// </returns>
 		RectF draw (
-			Arg::Args arg = Arg::topLeft, 
-			Vec2 pos = { 0.0, 0.0 }, 
-			ColorF color = Palette::White, 
+			Arg::Args arg = Arg::topLeft,
+			Vec2 pos = { 0.0, 0.0 },
+			ColorF color = Palette::White,
 			double lineHeight = 1.0
 		) const;
 
@@ -93,8 +93,8 @@ namespace s3d {
 		/// 描画領域
 		/// </returns>
 		RectF draw (
-			Vec2 pos = { 0.0, 0.0 }, 
-			ColorF color = Palette::White, 
+			Vec2 pos = { 0.0, 0.0 },
+			ColorF color = Palette::White,
 			double lineHeight = 1.0
 		) const {
 			return DrawableString::draw(pos, color, lineHeight);
@@ -124,8 +124,8 @@ namespace s3d {
 		/// フォントのスタイル
 		/// </param>
 		explicit FontP (
-			int32 size, 
-			const String& name = Typeface::Default, 
+			int32 size,
+			const String& name = Typeface::Default,
 			FontStyle style = FontStyle::Regular
 		) : Font(size, name, style) {}
 
@@ -133,7 +133,7 @@ namespace s3d {
 		/// デストラクタ
 		/// </summary>
 		~FontP() = default;
-		
+
 		/// <summary>
 		/// 基準位置を指定してテキストを描画します。
 		/// </summary>
@@ -156,10 +156,10 @@ namespace s3d {
 		/// 描画領域
 		/// </returns>
 		RectF draw (
-			const String& text, 
-			Arg::Args arg = Arg::topLeft, 
-			Vec2 pos = { 0.0, 0.0 }, 
-			ColorF color = Palette::White, 
+			const String& text,
+			Arg::Args arg = Arg::topLeft,
+			Vec2 pos = { 0.0, 0.0 },
+			ColorF color = Palette::White,
 			double lineHeight = 1.0
 		) const;
 
@@ -172,7 +172,9 @@ namespace s3d {
 		/// <returns>
 		/// DrawableString
 		/// </returns>
-		DrawableStringP operator()(const String& text) const;
+		DrawableStringP operator()(const String& text) const {
+			return DrawableStringP(*this, text);
+		}
 
 		/// <summary>
 		/// 描画するテキストを作成します。
